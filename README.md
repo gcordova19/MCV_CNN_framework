@@ -1,45 +1,16 @@
 # CNN framework for PyTorch
+# Team members
+    - Basem Elbarashy   > basemgalal.elbarashy@e-campus.uab.cat
+    - Sergi Garcia Bordils  >sergi.garciab@e-campus.uab.cat
+    - Marc Perez Quintana   >marc.Perez@e-campus.uab.cat
+    - Gabriela Cordova >GabrielaElizabeth.Cordova@e-campus.uab.cat
+# M5 Project: Scene Understanding for Autonomous Vehicles
 
-The following repository contains a functional framework to perform different deep learning tasks like Classification, Semantic segmentation and Domain adaptation.
+The goal of this Modul 5 is to learn the basic concepts and techniques to build deep neural networks to detect, segment and recognize specific objects.
+The first part of this module is to recognize the kind of object in a given window. To deal with this goal it is used pre-trained networks and it is designed new architectures in a big dataset. It is supplied an object recognition framework with VGG network
 
-## Actually in development
-- Classification (functional)
-    - Model: VGG16
-- Semantic segmentation (functional)
-    - Model: FCN8, DenseNetFCN (Tiramisú)
-- Object Detection (not implemented yet)
-- Domain Adaptation (not implemented yet)
+It is used deep learning frameworks such as PyTorch, Theano, TensorFlow, Caffe and Keras and basic deep learning methods such as feedforward networks (MLP) and convolutional networks (CNN). 
 
-### Functionalities implemented:
-- Train, validation and test in one run using a proper configuration.
-- Early stopping with model saving control via different metrics
-- TensorBoardX support (with confusion matrix display)
-- Configuration file to run experiments easily [ConfigFile](https://github.com/gvillalonga89/CNN_framework_PyTorch_private/tree/master/config)
-- Metrics: mean accuracy, mean IoU
-- Dataloader on GPU
-- Training scheduler
-- Train Progress bar
-- Auto downloadable pretrained models from ImageNet
+# Report Latex
 
-### How to run it
-- Configure the configuration file in config/ConfigFile.py
-- Run code using: CUDA_VISIBLE_DEVICES=[gpu_number] python main.py --exp_name [experiment_name] 
-  --exp_folder [path_to_save_experiment] --config_file [path_to_config_file]
-  You can also add any variable from the config file, just using --[var name] [value], the parameter given by argument will overwrite the value from the config file.
-  
-### Requirements
- - Python 2.7
- - PyTorch 0.3.0 (https://pytorch.org/)
- - Scipy 1.0.0
- - Numpy 1.13.3
- - OpenCV 3.0
- - wget
- - tensorboardx
- ### Requirements Installation
-```
-$ pip install requirements.txt -r --user
-```
-  
-### Actual limitations
-- Datasets are defined in txt files, one for images and gt files for each instance of training validation and test. The txt file must contain the path to the image and have the same line order per image respect to the gt file. This files path must be defined in the ConfigFile.py
-- Multi-GPU is not supported yet.
+Link to the [Overleaf article](https://www.overleaf.com/project/5c77257d723d50236d473fd9)
