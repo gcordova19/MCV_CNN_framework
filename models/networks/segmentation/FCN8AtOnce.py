@@ -1,4 +1,4 @@
-from FCN8 import FCN8
+from .FCN8 import FCN8
 
 class FCN8AtOnce(FCN8):
     def __init__(self, cf, num_classes=21, pretrained=False, net_name='FCN8AtOnce'):

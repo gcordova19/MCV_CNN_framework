@@ -6,7 +6,7 @@ import os
 sys.path.append('../')
 from metrics.metrics import compute_precision, compute_recall, compute_f1score, compute_accuracy, \
     compute_confusion_matrix, extract_stats_from_confm
-from simple_trainer_manager import SimpleTrainer
+from tasks.simple_trainer_manager import SimpleTrainer
 from utils.tools import confm_metrics2image
 
 class Classification_Manager(SimpleTrainer):

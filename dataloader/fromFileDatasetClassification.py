@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from dataloader import Data_loader
+from .dataloader import Data_loader
 
 class fromFileDatasetClassification(Data_loader):
 
