@@ -57,7 +57,7 @@ def plot_mIoU(vmIoU, legends, classes, scores, name_prefix):
     for indx_score, value_score in enumerate(scores):
         accum_dataY = None
         accum_dataX = None
-        print value_score  # easy, moderate, hard
+        print (value_score)  # easy, moderate, hard
         for indx_class, value_class in enumerate(classes):
             dataY = [np.asarray(mIoU)[:, indx_class, indx_score] if len(mIoU) > 0 else [] for mIoU in vmIoU]
             best_data = [max(data) if len(mIoU) > 0 else 0 for data in dataY]
@@ -85,14 +85,14 @@ def plot_mIoU(vmIoU, legends, classes, scores, name_prefix):
                 best_epoch = [x[indx] for (x, indx) in zip(accum_dataX, best_indx)]
             best_value = [y[indx] for (y, indx) in zip(accum_dataY, best_indx)]
             # print legends  # Model name
-            print best_epoch  # best epoch model
+            print (best_epoch)  # best epoch model
             # print best_value # best mean mAP  over each class
 
             for indx_class, value_class in enumerate(classes):
                 dataY = [np.asarray(mIoU)[:, indx_class, indx_score] if len(mIoU) > 0 else [] for mIoU in vmIoU]
                 value = [y[indx] for (y, indx) in zip(dataY, best_indx)]
-                print value_class  # car, pedestrian, cyclist
-                print value  # best mAP per class
+                print (value_class)  # car, pedestrian, cyclist
+                print (value)  # best mAP per class
                 scores.append([value_class, value])
     return scores
 
@@ -134,7 +134,7 @@ def Compute_plot(cf, subeval=None):
 
     vModels = [cf.model_name]
     if subeval is not None:
-        print subeval
+        print (subeval)
 
     title_prefix = 'baselines_nets_synthia_random_generator'
 
