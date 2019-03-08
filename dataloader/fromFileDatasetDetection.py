@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import os
 
-from dataloader import Data_loader
+from .dataloader import Data_loader
 
 class fromFileDatasetDetection(Data_loader):
 

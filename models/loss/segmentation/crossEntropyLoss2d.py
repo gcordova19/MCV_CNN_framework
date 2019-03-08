@@ -1,7 +1,7 @@
 import torch.nn.functional as F
 import torch.nn as nn
 import torch
-from semantic_loss import Semantic_Loss
+from .semantic_loss import Semantic_Loss
 from torch.autograd import Variable
 
 

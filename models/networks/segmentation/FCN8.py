@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from torch import nn
 
-from FCN16 import FCN16
+from .FCN16 import FCN16
 sys.path.append('../')
 from models.networks.network import Net
 

@@ -10,7 +10,7 @@ from dataloader.dataloader_builder import Dataloader_Builder
 def main():
     start_time = time.time()
     # Prepare configutation
-    print ('Loading configuration ...')
+    print('Loading configuration ...')
     config = Configuration()
     cf = config.Load()
     # Enable log file
@@ -51,14 +51,14 @@ def main():
             # Train without validation inside epoch
             problem_manager.trainer.start(dataloader.train_loader, dataloader.train_set)
         train_time = time.time() - train_time
-        logger_debug.write('\t Train step finished: %ds ' % (train_time))
+        logger_debug.write('\t Train step finished: %ds ' % train_time)
 
     if cf.validation:
         valid_time = time.time()
         model.net.eval()
         if not cf.train:
             logger_debug.write('- Reading Validation dataset: ')
-            dataloader.build_valid(cf.valid_samples,cf.valid_images_txt, cf.valid_gt_txt,
+            dataloader.build_valid(cf.valid_samples, cf.valid_images_txt, cf.valid_gt_txt,
                                    cf.resize_image_valid, cf.valid_batch_size)
         else:
             # If the Dataloader for validation was used on train, only update the total number of images to take
@@ -66,7 +66,7 @@ def main():
         logger_debug.write('\n- Starting validation <---')
         problem_manager.validator.start(dataloader.loader_set, dataloader.loader, 'Validation')
         valid_time = time.time() - valid_time
-        logger_debug.write('\t Validation step finished: %ds ' % (valid_time))
+        logger_debug.write('\t Validation step finished: %ds ' % valid_time)
 
     if cf.test:
         model.net.eval()
@@ -77,7 +77,7 @@ def main():
         logger_debug.write('\n - Starting test <---')
         problem_manager.validator.start(dataloader.loader_set, dataloader.loader, 'Test')
         test_time = time.time() - test_time
-        logger_debug.write('\t Test step finished: %ds ' % (test_time))
+        logger_debug.write('\t Test step finished: %ds ' % test_time)
 
     if cf.predict_test:
         model.net.eval()
@@ -87,10 +87,10 @@ def main():
         logger_debug.write('\n - Generating predictions <---')
         problem_manager.predictor.start(dataloader.predict_loader)
         pred_time = time.time() - pred_time
-        logger_debug.write('\t Prediction step finished: %ds ' % (pred_time))
+        logger_debug.write('\t Prediction step finished: %ds ' % pred_time)
 
     total_time = time.time() - start_time
-    logger_debug.write('\n- Experiment finished: %ds ' % (total_time))
+    logger_debug.write('\n- Experiment finished: %ds ' % (otal_time)
     logger_debug.write('\n')
 
 # Entry point of the script
