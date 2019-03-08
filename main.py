@@ -7,6 +7,8 @@ from models.model_builder import Model_builder
 from utils.logger import Logger
 from dataloader.dataloader_builder import Dataloader_Builder
 
+print("just testing torch version: ", torch.__version__)
+
 def main():
     start_time = time.time()
     # Prepare configutation
