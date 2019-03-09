@@ -62,20 +62,20 @@ class ProgressBar:
                 self.__lastLens = msg_lens
 
                 if self.__step == self.__nSteps:
-                    print ''
+                    print ('')
 
             if is_updated:
                 self.__step = self.__step + 1
         else:
-            print self.__step
-            print self.__nSteps
-            print 'WARNING: Progress Bar step is major than the limit established'
+            print(self.__step)
+            print(self.__nSteps)
+            print('WARNING: Progress Bar step is major than the limit established')
 
     def finish_progress(self):
         '''
         Function to finish the bar. It is needed to print something to put the pointer to the right point.
         '''
-        print ''
+        print('')
 
     def set_msg(self, msg):
         '''
@@ -94,9 +94,9 @@ class ProgressBar:
     def __split_msg(self, msg_endl):
         list_msgs = []
         list_lens = []
-
         #rows, columns = os.popen('stty size', 'r').read().split
         rows, columns = 10, 10
+
 
 
         columns = int(columns) - 1
@@ -160,11 +160,11 @@ class ProgressBar:
         return progressMsg
 
     def __createProgressMsg(self, its):
-        '''
+        """
         Private. Function to create the message Bar
         :param its: iteration per seconds
         :return: String. Return the progress message
-        '''
+        """
         nRepetitions = int(float(self.__lenBar) * float(self.__step) / float(self.__nSteps))
 
         percentage = 100. * float(self.__step) / float(self.__nSteps)
@@ -173,7 +173,7 @@ class ProgressBar:
 
         loss = self.__loss
 
-        if self.__prev_msg==None:
+        if self.__prev_msg is None:
             progressMsg = ''
         else:
             progressMsg = self.__prev_msg
@@ -181,7 +181,7 @@ class ProgressBar:
         progressMsg = progressMsg + '[' + ('=' * nRepetitions) + (' ' * (self.__lenBar - nRepetitions)) + \
                       '], ' + '%.03f it/s, ' % its + '%.02f%%' % percentage + \
                       ', ETA: %d:' % hours + '%02d:' % mints + "%02.01f" % sec
-        if self.__msg != None:
+        if self.__msg is not None:
             progressMsg = progressMsg + ', ' + self.__msg
 
         return progressMsg
@@ -245,15 +245,14 @@ Testing class
 
 if __name__ == '__main__':
 
-
-    print 'Testing small progress bar 5 seconds...'
+    print('Testing small progress bar 5 seconds...')
     bar = ProgressBar(5, lenBar=0)
     bar.update(show=False)
     for i in range(5):
         time.sleep(1)
         bar.update()
 
-    print 'Total testing estimated time...'
+    print('Total testing estimated time...')
     global_bar = ProgressBar(5 + 30 + 5 + 5, lenBar=20)
 
     accum_str = '\n\nTesting large message during 5 seconds...\n'
