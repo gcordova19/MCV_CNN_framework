@@ -136,7 +136,8 @@ class SimpleTrainer(object):
                 self.train_loss.update(float(self.loss.cpu().item()), N)
                 confm = compute_confusion_matrix(predictions, self.labels.cpu().data.numpy(), self.cf.num_classes,
                                                  self.cf.void_class)
-                self.confm_list = map(operator.add, self.confm_list, confm)
+                #self.confm_list = map(operator.add, self.confm_list, confm)
+                self.confm_list = self.confm_list + confm
 
                 if self.cf.normalize_loss:
                     self.stats.train.loss = self.train_loss.avg
@@ -280,7 +281,8 @@ class SimpleTrainer(object):
                     predictions = outputs.data.max(1)[1].cpu().numpy()
 
                     # Compute batch stats
-                    self.val_loss.update(float(self.model.loss(outputs, gts).cpu().item() / n_images), n_images)
+                    self.val_loss.update(float(self.model.loss(outputs, gts).cpu().data[0] / n_images), n_images)
+                    #self.val_loss.update(float(self.model.loss(outputs, gts).cpu().item() / n_images), n_images)
                     confm = compute_confusion_matrix(predictions, gts.cpu().data.numpy(), self.cf.num_classes,
                                                      self.cf.void_class)
                     confm_list = map(operator.add, confm_list, confm)
