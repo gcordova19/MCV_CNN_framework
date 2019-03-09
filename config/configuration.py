@@ -7,6 +7,7 @@ import argparse
 from easydict import EasyDict as edict
 import configparser
 
+
 class Configuration():
     def __init__(self):
         self.Parse_args()
@@ -33,6 +34,7 @@ class Configuration():
             # cf = imp.load_source('config', 'config/configFile.py')
             with open('config/configFile.yml', 'r') as f:
                 cf = edict(yaml.load(f))
+
         cf = self.Parser_to_config(cf)
         cf.exp_folder = os.path.join(cf.exp_folder, cf.exp_name)
         cf.tensorboard_path = os.path.join(cf.exp_folder,'tensorboard/')

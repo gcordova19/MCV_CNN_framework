@@ -35,8 +35,8 @@ def confm_metrics2image(conf_matrix,names=None):
     plt.colorbar()
     plt.title('Confusion Matrix')
 
-    plt.xticks(range(nLabels), plt_names, rotation=90)
-    ystick = list(zip(plt_names, [conf_matrix[i][i] for i in range(nLabels)]))
+    plt.xticks(range(nLabels),plt_names, rotation=90)
+    ystick = zip(plt_names, [conf_matrix[i][i] for i in range(nLabels)])
     ystick_str = [str(ystick[i][0]) + '(%.2f)' % ystick[i][1] for i in range(nLabels)]
 
     plt.yticks(range(nLabels), ystick_str)
@@ -54,7 +54,6 @@ def confm_metrics2image(conf_matrix,names=None):
     return img[..., ::-1]
 
 
-
 def save_prediction(output_path, predictions, names):
     for img in range(len(names)):
         output_file = output_path + names[img]
@@ -69,7 +68,7 @@ class Early_Stopping():
         self.patience = self.cf.patience
         self.stop = False
 
-    def check(self, save_condition, train_mLoss, valid_mLoss=None, 
+    def check(self, save_condition, train_mLoss, valid_mLoss=None,
                 mIoU_valid=None, mAcc_valid=None):
         if self.cf.stop_condition == 'train_loss':
             if train_mLoss < self.best_loss_metric:

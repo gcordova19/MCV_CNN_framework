@@ -42,9 +42,9 @@ normalize_loss              = True
 
 # General parameters
 
-train_samples               = -1#-1 uses all the data available inside the dataset files
-valid_samples               = -1#-1 uses all the data available inside the dataset files
-test_samples                = -1 #-1 uses all the data available inside the dataset files
+train_samples               = 50 #-1 uses all the data available inside the dataset files
+valid_samples               = -1 #-1 uses all the data available inside the dataset files
+test_samples                = 10 #-1 uses all the data available inside the dataset files
 train_batch_size            = 8
 valid_batch_size            = 1
 test_batch_size             = 1
@@ -66,16 +66,15 @@ grayscale                   = False #Use this option to convert to rgb a grascal
 
 # Dataset properties
 
-train_images_txt            = '/datatmp/Datasets/segmentation/cityscapes/cityscapes_images.txt'
-train_gt_txt                = '/datatmp/Datasets/segmentation/cityscapes/cityscapes_images_gt.txt'
-valid_images_txt            = '/datatmp/Datasets/segmentation/cityscapes/cityscapes_images.txt'
-valid_gt_txt                = '/datatmp/Datasets/segmentation/cityscapes/cityscapes_images_gt.txt'
-test_images_txt             = '/datatmp/Datasets/segmentation/cityscapes/cityscapes_images.txt'
-test_gt_txt                 = '/datatmp/Datasets/segmentation/cityscapes/cityscapes_images_gt.txt'
+train_images_txt = '/home/grupo09/M5/dataset/classificator/TT100K_trafficSigns/TT100K_trafficSigns_train_images.txt'
+train_gt_txt = '/home/grupo09/M5/dataset/classificator/TT100K_trafficSigns/TT100K_trafficSigns_train_gt.txt'
+valid_images_txt = '/home/grupo09/M5/dataset/classificator/TT100K_trafficSigns/TT100K_trafficSigns_valid_images.txt'
+valid_gt_txt = '/home/grupo09/M5/dataset/classificator/TT100K_trafficSigns/TT100K_trafficSigns_valid_gt.txt'
+test_images_txt = '/home/grupo09/M5/dataset/classificator/TT100K_trafficSigns/TT100K_trafficSigns_test_images.txt'
+test_gt_txt = '/home/grupo09/M5/dataset/classificator/TT100K_trafficSigns/TT100K_trafficSigns_test_gt.txt'
 
-labels                       = ['road','sidewalk','building','wall','fence','pole','traffic light','traffic, sign',
-                                'vegetation','terrain','sky','person','rider','car','truck','bus','train',
-                                'motorcycle','bicycle']
+labels                       = ['i1', 'i10', 'i11', 'i12', 'i13', 'i14', 'i15', 'i2', 'i3', 'i4', 'i5', 'il100', 'il110', 'il50', 'il60', 'il70', 'il80', 'il90', 'io', 'ip', 'p1', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15', 'p16', 'p17', 'p18', 'p19', 'p2', 'p20', 'p21', 'p22', 'p23', 'p24', 'p25', 'p26', 'p27', 'p28', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'pa10', 'pa12', 'pa13', 'pa14', 'pa8', 'pb', 'pc', 'pg', 'ph1.5', 'ph2', 'ph2.1', 'ph2.2', 'ph2.4', 'ph2.5', 'ph2.8', 'ph2.9', 'ph3', 'ph3.2', 'ph3.5', 'ph3.8', 'ph4', 'ph4.2', 'ph4.3', 'ph4.5', 'ph4.8', 'ph5', 'ph5.3', 'ph5.5', 'pl10', 'pl100', 'pl110', 'pl120', 'pl15', 'pl20', 'pl25', 'pl30', 'pl35', 'pl40', 'pl5', 'pl50', 'pl60', 'pl65', 'pl70', 'pl80', 'pl90', 'pm10', 'pm13', 'pm15', 'pm1.5', 'pm2', 'pm20', 'pm25', 'pm30', 'pm35', 'pm40', 'pm46', 'pm5', 'pm50', 'pm55', 'pm8', 'pn', 'pne', 'po', 'pr10', 'pr100', 'pr20', 'pr30', 'pr40', 'pr45', 'pr50', 'pr60', 'pr70', 'pr80', 'ps', 'pw2', 'pw2.5', 'pw3', 'pw3.2', 'pw3.5', 'pw4', 'pw4.2', 'pw4.5', 'w1', 'w10', 'w12', 'w13', 'w16', 'w18', 'w20', 'w21', 'w22', 'w24', 'w28', 'w3', 'w30', 'w31', 'w32', 'w34', 'w35', 'w37', 'w38', 'w41', 'w42', 'w43', 'w44', 'w45', 'w46', 'w47', 'w48', 'w49', 'w5', 'w50', 'w55', 'w56', 'w57', 'w58', 'w59', 'w60', 'w62', 'w63', 'w66', 'w8', 'wo', 'i6', 'i7', 'i8', 'i9', 'ilx', 'p29', 'w29', 'w33', 'w36', 'w39', 'w4', 'w40', 'w51', 'w52', 'w53', 'w54', 'w6', 'w61', 'w64', 'w65', 'w67', 'w7', 'w9', 'pax', 'pd', 'pe', 'phx', 'plx', 'pmx', 'pnl', 'prx', 'pwx', 'w11', 'w14', 'w15', 'w17', 'w19', 'w2', 'w23', 'w25', 'w26', 'w27', 'pl0', 'pl4', 'pl3', 'pm2.5', 'ph4.4', 'pn40', 'ph3.3', 'ph2.6']
+
 map_labels                  = None
 num_classes                 = 19
 shuffle                     = True
@@ -83,6 +82,7 @@ void_class                  = 255   # void id or value on the image
 
 # Training
 epochs                      = 2     # Max number of epochs, use 0 to save directly a model, useful to make conversions
+ini_epochs                      = 1     # min
 valid_samples_epoch         = 10    # Number of validation images used to validate an epoch
 
     ### Optimizer ###
