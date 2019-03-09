@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -n 4 # Number of cores
 #SBATCH -N 1 # Ensure that all cores are on one machine
-#SBATCH -D /home/grupo09/M5/marc/MCV_CNN_framework # working directory
+#SBATCH -D /home/grupo09/M5/basem_b/MCV_CNN_framework # working directory
 #SBATCH -t 1-00:00 # Runtime in D-HH:MM
-#SBATCH -p mhigh,mlow # Partition to submit to
+#SBATCH -p mhigh # Partition to submit to
 #SBATCH -q masterhigh # Required to requeue other users mlow queue jobs
                       # With this parameter only 1 job will be running in queue mhigh
                       # By defaulf the value is masterlow if not defined
@@ -13,5 +13,4 @@
 #SBATCH -e %x_%u_%j.err # File to which STDERR will be written
 
 
-source activate python27
-CUDA_LAUNCH_BLOCKING=1 python main.py --exp_name MarcTT100K --exp_folder Marc --config_file config/classification_sample_vgg16_kitti.yml
+python3 main.py --exp_name Test1 --exp_folder test1 --config_file config/classification_sample_vgg16_kitti.yml

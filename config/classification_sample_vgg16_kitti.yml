@@ -28,9 +28,9 @@ valid_samples               : -1
 #-1 uses all the data available inside the dataset files
 test_samples                : -1
 #-1 uses all the data available inside the dataset files
-train_batch_size            : 40
-valid_batch_size            : 40
-test_batch_size             : 40
+train_batch_size            : 80
+valid_batch_size            : 80
+test_batch_size             : 80
 train                       : True
 validation                  : True
 test                        : True # Calculate metrics on test giving the gt

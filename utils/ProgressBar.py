@@ -62,20 +62,20 @@ class ProgressBar:
                 self.__lastLens = msg_lens
 
                 if self.__step == self.__nSteps:
-                    print ''
+                    print( '')
 
             if is_updated:
                 self.__step = self.__step + 1
         else:
-            print self.__step
-            print self.__nSteps
-            print 'WARNING: Progress Bar step is major than the limit established'
+            print (self.__step)
+            print (self.__nSteps)
+            print ('WARNING: Progress Bar step is major than the limit established')
 
     def finish_progress(self):
         '''
         Function to finish the bar. It is needed to print something to put the pointer to the right point.
         '''
-        print ''
+        print('')
 
     def set_msg(self, msg):
         '''
@@ -246,14 +246,14 @@ Testing class
 if __name__ == '__main__':
 
 
-    print 'Testing small progress bar 5 seconds...'
+    print ('Testing small progress bar 5 seconds...')
     bar = ProgressBar(5, lenBar=0)
     bar.update(show=False)
     for i in range(5):
         time.sleep(1)
         bar.update()
 
-    print 'Total testing estimated time...'
+    print( 'Total testing estimated time...')
     global_bar = ProgressBar(5 + 30 + 5 + 5, lenBar=20)
 
     accum_str = '\n\nTesting large message during 5 seconds...\n'
