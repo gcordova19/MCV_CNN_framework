@@ -1,3 +1,6 @@
+import sys
+print(sys.version)
+
 import time
 from tasks.semanticSegmentator_manager import SemanticSegmentation_Manager
 from tasks.classification_manager import Classification_Manager
@@ -7,7 +10,9 @@ from models.model_builder import Model_builder
 from utils.logger import Logger
 from dataloader.dataloader_builder import Dataloader_Builder
 
-print("just testing torch version: ", torch.__version__)
+import torch
+print(" torch version: ", torch.__version__)
+print("cuda version", torch.version.cuda)
 
 def main():
     start_time = time.time()
@@ -89,10 +94,10 @@ def main():
         logger_debug.write('\n - Generating predictions <---')
         problem_manager.predictor.start(dataloader.predict_loader)
         pred_time = time.time() - pred_time
-        logger_debug.write('\t Prediction step finished: %ds ' % pred_time)
+        logger_debug.write('\n Prediction step finished: %ds ' % pred_time)
 
     total_time = time.time() - start_time
-    logger_debug.write('\n- Experiment finished: %ds ' % (otal_time)
+    logger_debug.write('\n- Experiment finished: %ds ' % total_time)
     logger_debug.write('\n')
 
 # Entry point of the script

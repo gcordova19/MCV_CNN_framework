@@ -1,7 +1,8 @@
 # Problem type
-problem_type                = 'segmentation'  # Option: ['segmentation','classification','detection']
+problem_type                = 'classification'  # Option: ['segmentation','classification','detection']
 # Model
 model_type                  = "VGG16"  # Options: ['DenseNetFCN', 'FCN8', 'FCN8atOnce' 'VGG16']
+"""
     ### DenseNetFCN options ####
 model_blocks                = 5               # Number of block densenetFCN_Custom only
 model_layers                = 4               # Number of layers per block densenetFCN_Custom only
@@ -22,6 +23,7 @@ positive_weight             = -1.0 # Set to -1.0 to use uniform example weightin
 rpn_pre_nms_top_n           = 6000 # Number of top scoring boxes to keep before apply NMS to RPN proposals
 rpn_post_nms_top_n          = 300 # Number of top scoring boxes to keep after applying NMS to RPN proposals
 rpn_nms_thresh              = 0.7 # NMS threshold used on RPN proposals
+"""
 
     ### load options
 resume_experiment           = False           # Restore the best model obtained in the experiment defined if exist
@@ -40,9 +42,9 @@ normalize_loss              = True
 
 # General parameters
 
-train_samples               = 50 #-1 uses all the data available inside the dataset files
-valid_samples               = 10 #-1 uses all the data available inside the dataset files
-test_samples                = 10 #-1 uses all the data available inside the dataset files
+train_samples               = -1#-1 uses all the data available inside the dataset files
+valid_samples               = -1#-1 uses all the data available inside the dataset files
+test_samples                = -1 #-1 uses all the data available inside the dataset files
 train_batch_size            = 8
 valid_batch_size            = 1
 test_batch_size             = 1

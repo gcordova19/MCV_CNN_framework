@@ -12,6 +12,7 @@
 #SBATCH -o %x_%u_%j.out # File to which STDOUT will be written
 #SBATCH -e %x_%u_%j.err # File to which STDERR will be written
 
-
-source activate python27
-python main.py --exp_name Test2 --exp_folder Test2 --config_file config/classification_sample_vgg16_kitti.yml
+source activate Test
+#python2 main.py --exp_name Test2 --exp_folder Test2 --config_file config/classification_sample_vgg16_kitti.yml
+#CUDA_LAUNCH_BLOCK=1 python3 main.py --exp_name Test1 --exp_folder test1 --config_file config/classification_sample_vgg16_kitti.yml
+CUDA_LAUNCH_BLOCKING=1 python3 main.py --config_file config/configFile.yml --exp_name Test1
