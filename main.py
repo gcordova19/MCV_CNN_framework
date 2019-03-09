@@ -97,8 +97,9 @@ def main():
         logger_debug.write('\n Prediction step finished: %ds ' % pred_time)
 
     total_time = time.time() - start_time
+
     logger_debug.write('\n- Experiment finished: %ds ' % total_time)
-    logger_debug.write('\n')
+
 
 # Entry point of the script
 if __name__ == "__main__":
