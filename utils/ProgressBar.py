@@ -99,7 +99,6 @@ class ProgressBar:
 
 
 
-
         columns = int(columns) - 1
 
         for msg in msg_endl:

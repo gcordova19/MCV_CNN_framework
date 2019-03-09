@@ -5,7 +5,9 @@ import io
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-def confm_metrics2image(conf_matrix,names=None):
+
+def confm_metrics2image(conf_matrix, names=None):
+
     nLabels = np.shape(conf_matrix)[0]
 
     if names == None:
@@ -23,7 +25,7 @@ def confm_metrics2image(conf_matrix,names=None):
             else:
                 conf_matrix[i][j] = (conf_matrix[i][j]) / float(sum_row)
 
-    img = io.StringIO()
+    img = io.BytesIO()
     plt.ioff()
     plt.cla()
     plt.clf()
@@ -35,8 +37,8 @@ def confm_metrics2image(conf_matrix,names=None):
     plt.colorbar()
     plt.title('Confusion Matrix')
 
-    plt.xticks(range(nLabels),plt_names, rotation=90)
-    ystick = zip(plt_names, [conf_matrix[i][i] for i in range(nLabels)])
+    plt.xticks(range(nLabels), plt_names, rotation=90)
+    ystick = list(zip(plt_names, [conf_matrix[i][i] for i in range(nLabels)]))
     ystick_str = [str(ystick[i][0]) + '(%.2f)' % ystick[i][1] for i in range(nLabels)]
 
     plt.yticks(range(nLabels), ystick_str)
@@ -50,8 +52,8 @@ def confm_metrics2image(conf_matrix,names=None):
     img.seek(0)
 
     data = np.fromstring(img.getvalue(), dtype=np.uint8)
-    img = cv.imdecode(data, cv.IMREAD_UNCHANGED)[:, :, 0:3]
-    return img[..., ::-1]
+    im = cv.imdecode(data, cv.IMREAD_UNCHANGED)[:, :, 0:3]
+    return im[..., ::-1]
 
 
 def save_prediction(output_path, predictions, names):
