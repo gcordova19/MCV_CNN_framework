@@ -66,7 +66,7 @@ class Model_builder():
         elif self.cf.model_type.lower() == 'vgg16':
             self.net = VGG16(self.cf, num_classes=self.cf.num_classes, pretrained=self.cf.basic_pretrained_model).cuda()
         else:
-            raise ValueError('Unknown model')
+            raise ValueError(self.cf.model_type.lower() + 'Unknown model')
 
         # print(self.cf.resume_experiment)
         # print((self.cf.pretrained_model.lower() == 'custom' and self.cf.load_weight_only))

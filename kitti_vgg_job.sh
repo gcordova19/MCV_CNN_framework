@@ -13,5 +13,5 @@
 #SBATCH -e %x_%u_%j.err # File to which STDERR will be written
 
 
-
-python2 main.py --exp_name Test1 --exp_folder test1 --config_file config/classification_sample_vgg16_kitti.yml
+source activate python27
+CUDA_LAUNCH_BLOCKING=1 python main.py --exp_name Test2 --exp_folder Test2 --config_file config/classification_sample_vgg16_kitti.yml
