@@ -3,8 +3,8 @@
 #SBATCH -N 1 # Ensure that all cores are on one machine
 #SBATCH -D /home/grupo09/M5/basem_b/MCV_CNN_framework # working directory
 #SBATCH -t 1-00:00 # Runtime in D-HH:MM
-#SBATCH -p mhigh # Partition to submit to
-#SBATCH -q masterhigh # Required to requeue other users mlow queue jobs
+#SBATCH -p mlow # Partition to submit to
+#SBATCH -q masterlow # Required to requeue other users mlow queue jobs
                       # With this parameter only 1 job will be running in queue mhigh
                       # By defaulf the value is masterlow if not defined
 #SBATCH --mem 12000 # 4GB solicitados.

@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -n 4 # Number of cores
 #SBATCH -N 1 # Ensure that all cores are on one machine
-#SBATCH -D /home/grupo09/M5/basem_b/MCV_CNN_framework # working directory
+#SBATCH -D /home/grupo09/M5/MCV_CNN_framework # working directory
 #SBATCH -t 1-00:00 # Runtime in D-HH:MM
 #SBATCH -p mhigh # Partition to submit to
 #SBATCH -q masterhigh # Required to requeue other users mlow queue jobs
@@ -13,4 +13,5 @@
 #SBATCH -e %x_%u_%j.err # File to which STDERR will be written
 
 
-python3 main.py --exp_name Test1 --exp_folder test1 --config_file config/classification_sample_vgg16_kitti.yml
+source activate python27
+python main.py --exp_name Test2 --exp_folder Test2 --config_file config/classification_sample_vgg16_kitti.yml
