@@ -20,6 +20,6 @@ Other directories like `metrics/` and `utils/` provides implementations of evalu
 [slides](https://docs.google.com/presentation/d/16mqkDaZYkFHeDiLis_u2VfJKfOyEdLi1wrwsCPWdkEE/edit?usp=sharing)
 
 # Model weights       
-[VGG trained on TT100K with pretrained weights from Imagenet] (https://drive.google.com/file/d/1rzPV77QBgUsMBE7Zrk04B7wlrVOtwtJf/view?usp=sharing)
+[VGG trained on TT100K with pretrained weights from Imagenet](https://drive.google.com/file/d/1rzPV77QBgUsMBE7Zrk04B7wlrVOtwtJf/view?usp=sharing)
 
-[VGG trained on KITTI with pretrained weights from Imagenet] (https://drive.google.com/file/d/1om12oqCvw7WgqJEcsobZt8-ksgGtM-ms/view?usp=sharing)
+[VGG trained on KITTI with pretrained weights from Imagenet](https://drive.google.com/file/d/1om12oqCvw7WgqJEcsobZt8-ksgGtM-ms/view?usp=sharing)
