@@ -1,3 +1,0 @@
-/home/grupo09/no/envs/python27/lib/python2.7/site-packages/torchvision/models/densenet.py:212: UserWarning: nn.init.kaiming_normal is now deprecated in favor of nn.init.kaiming_normal_.
-  nn.init.kaiming_normal(m.weight.data)
-slurmstepd: error: *** JOB 29149 ON etse-75-51 CANCELLED AT 2019-03-10T12:12:52 ***
