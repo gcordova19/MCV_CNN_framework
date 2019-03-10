@@ -58,6 +58,16 @@ The master branch does not currently contain the code for the DenseNet121 and Ou
 present in the configuration folder. I'll merge that branch into master when I have time to do it because there are a ton of merge conflicts.
 
 # Level of completeness of the week 2 goals       
+### Task a)
+- [x] Analyze the dataset.
+- [x] Calculate the accuracy on train, val, and test sets.
+- [x] Evaluate different techniques in the configuration file:
+- [x] Transfer learning to another dataset (BTS).
+- [x] Understand which parts of the code are doing what you specify in the configuration file.
+### Task b)
+- [x] Set-up a new experiment file to discriminate among pedestrians, vehicles, and cyclists on KITTI dataset.
+- [x] Train from scratch and fine-tuning with VGG16
+
 
 # Slides       
 [slides](https://docs.google.com/presentation/d/16mqkDaZYkFHeDiLis_u2VfJKfOyEdLi1wrwsCPWdkEE/edit?usp=sharing)
