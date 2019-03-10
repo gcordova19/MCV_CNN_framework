@@ -47,4 +47,10 @@ Test non-finetuned | 97.41% | 0.46% | 2.25% | 0.75% |
 # Model weights       
 [VGG trained on TT100K with pretrained weights from Imagenet](https://drive.google.com/file/d/1rzPV77QBgUsMBE7Zrk04B7wlrVOtwtJf/view?usp=sharing)
 
+[VGG trained on BelgiumTSC with pretrained weights from Imagenet](https://drive.google.com/drive/folders/1qjAuTzujN8r8Q_NDpGQISuVAZ-j3dn_f?usp=sharing)
+
+[VGG trained on BelgiumTSC with pretrained weights from TT100K](https://drive.google.com/drive/folders/1ZmLlWdPCj-1tGkknJ3TyggMOBj7gIOk8?usp=sharing)
+
 [VGG trained on KITTI with pretrained weights from Imagenet](https://drive.google.com/file/d/1om12oqCvw7WgqJEcsobZt8-ksgGtM-ms/view?usp=sharing)
+
+[VGG trained on KITTI from scratch](https://drive.google.com/drive/folders/1uW-U3xQZJvyUmn9OlgV_mNKr52_EiANb?usp=sharing)
