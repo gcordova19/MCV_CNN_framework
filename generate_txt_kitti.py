@@ -45,7 +45,7 @@ with open(txt_dir+"valid_images.txt", "w+") as f_val:
 with open(txt_dir+"valid_gt.txt", "w+") as f:
     f.write(ground_truth_valid)
 
-with open(txt_dir+"train_gt.txt", "w+") as f:
+with open(txt_dir+"test_gt.txt", "w+") as f:
     f.write(ground_truth_test)
 
 print("generated valid_images.txt and valid_gt.txt at", txt_dir)
