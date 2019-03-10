@@ -37,7 +37,25 @@ Test finetuned ImageNet | 99.75% | 87.22% | 87.64% | 87.06% |
 Val non-finetuned | 96.51% | 0.43% | 2.17% | 0.72% |
 Test non-finetuned | 97.41% | 0.46% | 2.25% | 0.75% |
 
+## OurNet (TT100K)
+Split | Accuracy | Precision | Recall | F1 score |
+--- | --- | --- | --- |--- |
+TT100K val | 96.51% | 0.43% |2.17% | 0.72% |
+TT100K test | 96.21% | 0.28% | 2.17% | 0.49% |
+Kitti val | 87.02% | 6.01% | 12.50% | 8.12% |
+Kitti test | 87.02% | 6.01% | 12.50% | 8.12% |
 
+# Running the code
+To use our code run the following command:
+
+''''python main.py --exp_name <EXP_NAME> --exp_folder <EXP_FOLDER> --config_file <CONFIG_FILE>''''
+
+where ''''<EXP_FOLDER>'''' is the default destination of the log files and the model weights of the different experiments, ''''<EXP_NAME>'''' is the 
+desired name of the experiment (and will be stored in the experiments folder), and ''''<CONFIG_FILE>'''' is the name of the configuration file, where the task,
+ model, dataset and other parameters are specified. The VGG16 experiments can be found in the configuration folder (''''./config/'''').
+
+The master branch does not currently contain the code for the DenseNet121 and OurNet, they can be found in the branch named sergi. The config files are also
+present in the configuration folder. I'll merger that branch into master when I have time to do it because there are a gorillion of merge conflicts.
 
 # Level of completeness of the week 2 goals       
 
@@ -48,3 +66,4 @@ Test non-finetuned | 97.41% | 0.46% | 2.25% | 0.75% |
 [VGG trained on TT100K with pretrained weights from Imagenet](https://drive.google.com/file/d/1rzPV77QBgUsMBE7Zrk04B7wlrVOtwtJf/view?usp=sharing)
 
 [VGG trained on KITTI with pretrained weights from Imagenet](https://drive.google.com/file/d/1om12oqCvw7WgqJEcsobZt8-ksgGtM-ms/view?usp=sharing)
+
