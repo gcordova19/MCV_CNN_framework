@@ -46,8 +46,7 @@ class OurNet(Net):
             nn.Linear(128*6*6, 128),
             nn.ReLU(),
             # apparently we don't need a softmax act., pytorch just does a max(output) when doint the xentropy
-            nn.Linear(128, 8)  
-            )
+            nn.Linear(128, num_classes))
 
     def forward(self, x):
         x = self.conv(x)
@@ -56,15 +55,16 @@ class OurNet(Net):
         return x
 
     def _initialize_weights(self):
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-                m.weight.data.normal_(0, math.sqrt(2. / n))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-            elif isinstance(m, nn.BatchNorm2d):
-                m.weight.data.fill_(1)
-                m.bias.data.zero_()
-            elif isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, 0.01)
-                m.bias.data.zero_()
+        pass
+        #for m in self.modules():
+        #    if isinstance(m, nn.Conv2d):
+        #        n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+        #        m.weight.data.normal_(0, math.sqrt(2. / n))
+        #        if m.bias is not None:
+        #            m.bias.data.zero_()
+        #    elif isinstance(m, nn.BatchNorm2d):
+        #        m.weight.data.fill_(1)
+        #        m.bias.data.zero_()
+        #    elif isinstance(m, nn.Linear):
+        #        m.weight.data.normal_(0, 0.01)
+        #        m.bias.data.zero_()

@@ -47,17 +47,18 @@ grayscale                   : False #Use this option to convert to rgb a grascal
 
 # Dataset properties
 
-train_images_txt            : '/home/grupo09/mcv/datasets/M5/classification/TT100K_trafficSigns/TT100K_trafficSigns_train_images.txt'
-train_gt_txt                : '/home/grupo09//mcv/datasets/M5/classification/TT100K_trafficSigns/TT100K_trafficSigns_train_gt.txt'
-valid_images_txt            : '/home/grupo09//mcv/datasets/M5/classification/TT100K_trafficSigns/TT100K_trafficSigns_valid_images.txt'
-valid_gt_txt                : '/home/grupo09//mcv/datasets/M5/classification/TT100K_trafficSigns/TT100K_trafficSigns_valid_gt.txt'
-test_images_txt             : '/home/grupo09//mcv/datasets/M5/classification/TT100K_trafficSigns/TT100K_trafficSigns_test_images.txt'
-test_gt_txt                 : '/home/grupo09//mcv/datasets/M5/classification/TT100K_trafficSigns/TT100K_trafficSigns_test_gt.txt'
+train_images_txt            : '/home/grupo09/M5/marc/MCV_CNN_framework/KITTI/train_images.txt'
+train_gt_txt                : '/home/grupo09/M5/marc/MCV_CNN_framework/KITTI/train_gt.txt'
+valid_images_txt            : '/home/grupo09/M5/marc/MCV_CNN_framework/KITTI/valid_images.txt'
+valid_gt_txt                : '/home/grupo09/M5/marc/MCV_CNN_framework/KITTI/valid_gt.txt'
+test_images_txt             : '/home/grupo09/M5/marc/MCV_CNN_framework/KITTI/test_images.txt'
+test_gt_txt                 : '/home/grupo09/M5/marc/MCV_CNN_framework/KITTI/test_gt.txt'
 
-labels                      : !!python/tuple ['i1','i2','i4','i5','il100','il60','il80','io','ip','p10','p11','p12','p19','p23','p26','p27','p3','p5','p6','pg','ph4.5','ph4','ph5','pl100','pl120','pl20','pl30','pl40','pl50','pl5','pl60','pl70','pl80','pm20','pm30','pm55','pne','pn','po','pr40','w13','w32','w55','w57','w59','wo']
-map_labels                  : !!python/dict {'i2': 0,'i4': 1,'i5': 2,'il100': 3,'il60': 4,'il80': 5,'io': 6,'ip': 7,'p10': 8,'p11': 9,'p12': 10,'p19': 11,'p23': 12,'p26': 13,'p27': 14,'p3': 15,'p5': 16,'p6': 17,'pg': 18,'ph4.5': 19,'ph4': 20,'ph5': 21,'pl100': 22,'pl120': 23,'pl20': 24,'pl30': 25,'pl40': 26,'pl50': 27,'pl5': 28,'pl60': 29,'pl70': 30,'pl80': 31,'pm20': 32,'pm30': 33,'pm55': 34,'pne': 35,'pn': 36,'po': 37,'pr40': 38,'w13': 39,'w32': 40,'w55': 41,'w57': 42,'w59': 43,'wo': 44, 'i1': 45}
+labels                      : !!python/tuple ['Car', 'Pedestrian', 'Person_sitting', 'Truck', 'Van', 'background', 'Cyclist', 'Tram']
+map_labels                  : !!python/dict {'Car': 0, 'Pedestrian': 1, 'Person_sitting': 2, 'Truck': 3, 'Van': 4, 'background': 5, 'Cyclist': 6, 'Tram': 7}
 
-num_classes                 : 46
+
+num_classes                 : 8
 shuffle                     : True
 void_class                  : 255 #void id or value on the image
 
@@ -70,14 +71,14 @@ is_training                 : True
 optimizer                   : 'SGD'
 momentum1                   : 0.99
 momentum2                   : 0.99
-learning_rate               : 0.001
+learning_rate               : 1.0e-5
 learning_rate_bias          : 1.0e-5
 weight_decay                : 5.0e-4
     ### Scheduler
 scheduler                   : 'MultiStep' #['ReduceLROnPlateau','Step','MultiStep','Exponential', None]
 decay                       : 0.1 #Learnng rate decay to apply (lr*decay)
 sched_patience              : 5 # ReduceLROnPlateau option: epoch patience without loss change until a lr decrement
-step_size                   : 10 #Step option: epoch counter to decrease lr
+step_size                   : 20 #Step option: epoch counter to decrease lr
 milestone                   : !!python/tuple [10] #MultiStep option: define different milestones (epochs) to decrease lr
     ### Save criteria
 save_condition              : 'f1_score' # ['always','(x)_loss','(x)_mAcc','(x)_mIoU'] x : valid or train_loss
