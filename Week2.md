@@ -16,7 +16,7 @@ Other directories like `metrics/` and `utils/` provides implementations of evalu
 
 # Level of completeness of the week 2 goals       
 
-# Mlides       
+# Slides       
 
 # Model weights       
 
