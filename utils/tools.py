@@ -1,7 +1,14 @@
 import numpy as np
 import cv2 as cv
 import matplotlib
-import io
+#import StringIO
+from io import BytesIO 
+
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
@@ -25,7 +32,8 @@ def confm_metrics2image(conf_matrix, names=None):
             else:
                 conf_matrix[i][j] = (conf_matrix[i][j]) / float(sum_row)
 
-    img = io.BytesIO()
+    #img = StringIO()
+    img = BytesIO() 
     plt.ioff()
     plt.cla()
     plt.clf()
@@ -52,12 +60,10 @@ def confm_metrics2image(conf_matrix, names=None):
     img.seek(0)
 
     data = np.fromstring(img.getvalue(), dtype=np.uint8)
-    im = cv.imdecode(data, cv.IMREAD_UNCHANGED)[:, :, 0:3]
-    print('confutionMat')
-    img_file_path = "/home/grupo09/M5/Resultados/MAT.png"
-    cv.imwrite(img_file_path, im)
-    return im[..., ::-1]
+    img = cv.imdecode(data, cv.IMREAD_UNCHANGED)[:, :, 0:3]
+    img = img[..., ::-1]
 
+    return img
 
 def save_prediction(output_path, predictions, names):
     for img in range(len(names)):
