@@ -17,6 +17,7 @@ Other directories like `metrics/` and `utils/` provides implementations of evalu
 # Level of completeness of the week 2 goals       
 
 # Slides       
+[slides](https://docs.google.com/presentation/d/16mqkDaZYkFHeDiLis_u2VfJKfOyEdLi1wrwsCPWdkEE/edit?usp=sharing)
 
 # Model weights       
 
