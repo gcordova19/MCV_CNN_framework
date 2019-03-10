@@ -1,0 +1,12 @@
+
+ ---------- Init experiment: VGG16_TransferTT100K_29273 ---------- 
+- Building model: VGG16 <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 	 Train step finished: 1381s 
+- Starting validation <---	 Validation step finished: 5s 
+- Reading Test dataset: 
+ - Starting test <---	 Test step finished: 5s 
+- Reading Prediction dataset: 
+ - Generating predictions <---
+ Prediction step finished: 11s 
+- Experiment finished: 1419s 
