@@ -1,0 +1,5 @@
+2.7.15 |Anaconda custom (64-bit)| (default, Dec 14 2018, 19:04:19) 
+[GCC 7.3.0]
+(' torch version: ', '0.4.1.post2')
+('cuda version', '9.0.176')
+Loading configuration ...
