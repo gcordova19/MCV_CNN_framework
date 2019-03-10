@@ -71,5 +71,7 @@ present in the configuration folder. I'll merger that branch into master when I 
 
 [VGG trained on KITTI with pretrained weights from Imagenet](https://drive.google.com/file/d/1om12oqCvw7WgqJEcsobZt8-ksgGtM-ms/view?usp=sharing)
 
+<<<<<<< HEAD
+=======
 [VGG trained on KITTI from scratch](https://drive.google.com/drive/folders/1uW-U3xQZJvyUmn9OlgV_mNKr52_EiANb?usp=sharing)
-
+>>>>>>> 4c1ab971e5dd61ca85399cbe19e1fa2c95681655
