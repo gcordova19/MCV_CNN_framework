@@ -15,6 +15,9 @@ We will use deep learning frameworks such as PyTorch, Theano, TensorFlow, Caffe 
 
 Link to the [Overleaf article](https://www.overleaf.com/project/5c77257d723d50236d473fd9)
 
+# Week2
+[Summary of our work](Week2.md)
+
 # VGG summary
 in Very Deep Convolution Networks for Large-Scale Image Recognition, Simonyan and Zisserman analyze how increasing the depth of convolutional neural networks affects their performance. They use smaller filters (3x3, padding 1, stride 1) and argue that by stacking 3x3 convolutional layers they get a larger effective receptive field while decreasing the number of parameters. This also allows to include more non-linear rectification layers, making the decision function more discriminative.
 They analyze different architectures with these 3x3 convolutional layers combined with max-pooling layers followed by 2 fully-connected layers of 4096 channels, a 1000 fully connected layer and soft-max.
@@ -23,6 +26,3 @@ They show that increasing the depth of the network helps to improve the classifi
 # Inception-V3 summary
 The main idea of the inception model is not only going deeper as most of the state-of-the-art models but also going wider. They did several experiments regarding the convolution factorization and used three main inception blocks to build their architecture. Each inception block has a pooling layer and in parallel other different paths of convlutional filters and output of all paths are concatenated. 1*1 conv layers used to decrease the depth and also the computational cost in many cases without hurting the performance. The pooling inside inception module is always applied in parallel with conv with stride of 2 to avoid representational bottlenecks that pooling may cause. Finally they showed that their architecture outperformed previous models by 25% reduction in the error on ILSVRC challenge.
 
-
-# Week2
-[Summary of our work](Week2.md)
