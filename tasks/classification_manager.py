@@ -148,8 +148,12 @@ class Classification_Manager(SimpleTrainer):
 
     class predict(SimpleTrainer.predict):
         def __init__(self, logger_stats, model, cf):
+            print("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
             super(Classification_Manager.predict, self).__init__(logger_stats, model, cf)
+            print("holaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
             self.filename = os.path.join(self.cf.predict_path_output, 'predictions.txt')
+            print("holuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")
+            print(self.filename)
             self.f = open(self.filename,'w')
 
         def write_results(self, predictions, img_name, img_shape):
