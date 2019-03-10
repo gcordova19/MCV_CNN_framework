@@ -136,7 +136,8 @@ class SimpleTrainer(object):
                 self.train_loss.update(float(self.loss.cpu().item()), N)
                 confm = compute_confusion_matrix(predictions, self.labels.cpu().data.numpy(), self.cf.num_classes,
                                                  self.cf.void_class)
-                self.confm_list = list(map(operator.add, self.confm_list, confm))
+                #self.confm_list = map(operator.add, self.confm_list, confm)
+                self.confm_list = self.confm_list + confm
 
                 if self.cf.normalize_loss:
                     self.stats.train.loss = self.train_loss.avg
@@ -264,7 +265,7 @@ class SimpleTrainer(object):
             elif mode == 'Validation':
                 self.logger_stats.write_stat(self.stats.val, epoch, self.cf.val_json_file)
             elif mode == 'Test':
-                self.logger_stats.write_stat(self.stats.test, epoch, self.cf.test_json_file)
+                self.logger_stats.write_stat(self.stats.val, epoch, self.cf.test_json_file)
 
         def validation_loop(self, epoch, valid_loader, valid_set, bar, global_bar, confm_list):
             for vi, data in enumerate(valid_loader):
@@ -273,14 +274,22 @@ class SimpleTrainer(object):
                 n_images, w, h, c = inputs.size()
                 inputs = Variable(inputs).cuda()
                 gts = Variable(gts).cuda()
-
+		
                 # Predict model
                 with torch.no_grad():
                     outputs = self.model.net(inputs)
                     predictions = outputs.data.max(1)[1].cpu().numpy()
-
+                    print(type(data))
+                    print(inputs.shape)
+                    print(outputs.shape)
+                    print(gts.shape)
+                    print(type(self.model.loss(outputs, gts).cpu()))
+                    print(self.model.loss(outputs, gts).item())
+                    
                     # Compute batch stats
-                    self.val_loss.update(float(self.model.loss(outputs, gts).cpu().item() / n_images), n_images)
+                    
+                    #self.val_loss.update(float(self.model.loss(outputs, gts).cpu().data[0] / n_images), n_images)
+                    self.val_loss.update(float(self.model.loss(outputs, gts).item() / n_images), n_images)
                     confm = compute_confusion_matrix(predictions, gts.cpu().data.numpy(), self.cf.num_classes,
                                                      self.cf.void_class)
                     confm_list = list(map(operator.add, confm_list, confm))
