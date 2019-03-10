@@ -24,10 +24,12 @@ Dataset | Accuracy | Precision | Recall | F1 score |
 TT100K train | 99.83% | 88.77% | 87.68% | 88.17% | 
 TT100K val | 99.43% | 43.91% | 46.26% | 42.52% |
 TT100K test | 99.74% | 86.34% | 87.37% | 86.42% |
-BelgiumTSC finetuned ImageNet | 99.79% | 63.12% | 67.47% | 63.43% |
-BelgiumTSC finetuned TT100K | 99.88% | 78.79% | 78.15% | 77.76% | 
-Kitti finetuned ImageNet | 99.39% | 88.82% | 89.03% | 88.80% |
-Kitti non-finetuned | 87.02% | 6.01% | 12.5% | 8.12%|
+BelgiumTSC finetuned ImageNet* | 99.79% | 63.12% | 67.47% | 63.43% |
+BelgiumTSC finetuned TT100K* | 99.88% | 78.79% | 78.15% | 77.76% | 
+Kitti finetuned ImageNet* | 99.39% | 88.82% | 89.03% | 88.80% |
+Kitti non-finetuned* | 87.02% | 6.01% | 12.5% | 8.12%|
+
+*results from the test set
 
 ## DenseNet (TT100K)
 Split | Accuracy | Precision | Recall | F1 score |  
@@ -37,7 +39,7 @@ Test finetuned ImageNet | 99.75% | 87.22% | 87.64% | 87.06% |
 Val non-finetuned | 96.51% | 0.43% | 2.17% | 0.72% |
 Test non-finetuned | 97.41% | 0.46% | 2.25% | 0.75% |
 
-## OurNet (TT100K)
+## OurNet
 Split | Accuracy | Precision | Recall | F1 score |
 --- | --- | --- | --- |--- |
 TT100K val | 96.51% | 0.43% |2.17% | 0.72% |
@@ -52,10 +54,10 @@ To use our code run the following command:
 
 where ````<EXP_FOLDER>```` is the default destination of the log files and the model weights of the different experiments, ````<EXP_NAME>```` is the 
 desired name of the experiment (and will be stored in the experiments folder), and ````<CONFIG_FILE>```` is the name of the configuration file, where the task,
- model, dataset and other parameters are specified. The VGG16 experiments can be found in the configuration folder (````./config/````).
+ model, dataset and other parameters are specified. The VGG16 experiments can be found in the configuration folder (````config/````).
 
 The master branch does not currently contain the code for the DenseNet121 and OurNet, they can be found in the branch named sergi. The config files are also
-present in the configuration folder. I'll merge that branch into master when I have time to do it because there are a ton of merge conflicts.
+present in the configuration folder of that branch. I'll merge that branch into master when I have time to do it because there are a ton of merge conflicts.
 
 # Level of completeness of the week 2 goals       
 ### Task a)
@@ -82,4 +84,12 @@ present in the configuration folder. I'll merge that branch into master when I h
 [VGG trained on KITTI with pretrained weights from Imagenet](https://drive.google.com/file/d/1om12oqCvw7WgqJEcsobZt8-ksgGtM-ms/view?usp=sharing)
 
 [VGG trained on KITTI from scratch](https://drive.google.com/drive/folders/1uW-U3xQZJvyUmn9OlgV_mNKr52_EiANb?usp=sharing)
+
+[DenseNet trained on TT100K pretrained with ImageNet](https://drive.google.com/file/d/1pJML6I2yYXBpdcEjTZBaxvGT4PPtdfWd/view?usp=sharing)
+
+[DenseNet trained on TT100K without pretraining](https://drive.google.com/file/d/1qTjlzPSIHdo42Z2m3kE2Y6g4lUGYcxHL/view?usp=sharing)
+
+[OurNet trained on TT100K](https://drive.google.com/file/d/1spMDxo2yqn200BWvP49UadVDobqJhnNo/view?usp=sharing)
+
+[OurNet trained on kitti](https://drive.google.com/file/d/1HUX2mpi1Pqe9tGJbNqnyqLe5ybBYTrWm/view?usp=sharing)
 
