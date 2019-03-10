@@ -11,6 +11,20 @@ The first part of this module's project will be object recognition in a given wi
 
 We will use deep learning frameworks such as PyTorch, Theano, TensorFlow, Caffe and Keras and basic deep learning methods such as feedforward networks (MLP) and convolutional networks (CNN). 
 
+# Code structure and explanation
+
+The code structured such that main components are in four directories:config, dataloader, models, tasks and they are all called from the main.py 
+
+main.py read the config file that has been specified when you run the code using using Configuration() that is defined in config/ and based on it’s arguments it will do the following:
+1- load the model using Model_builder() defined in models/
+2- select the experiment (detection, classification, ...) that should be defined in tasks/
+3- load the dataset using Dataloader_Builder defined in dataloader/ and depending on the task it will be loaded differently. For each dataset we need to have 6 files in specific format and their paths defined in the  configuration file 
+4- run training ⇒  validation ⇒ testing ⇒ prediction (doesn’t need ground truth)
+
+Other directories like metrics/ and   provide 
+
+
+
 # Report Latex
 
 Link to the [Overleaf article](https://www.overleaf.com/project/5c77257d723d50236d473fd9)
