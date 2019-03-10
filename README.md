@@ -25,4 +25,4 @@ The main idea of the inception model is not only going deeper as most of the sta
 
 
 # Week2
-[Summary of tasks impleneted](Week2.md)
+[Summary of our work](Week2.md)
