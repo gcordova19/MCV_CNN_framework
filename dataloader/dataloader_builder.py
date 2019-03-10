@@ -74,4 +74,4 @@ class Dataloader_Builder(object):
         self.predict_set = fromFileDatasetToPredict(self.cf, self.cf.test_images_txt,
                                                self.cf.test_samples, self.cf.resize_image_test,
                                                preprocess=self.img_preprocessing)
-        self.predict_loader = DataLoader(self.predict_set, batch_size=1, num_workers=7)
+        self.predict_loader = DataLoader(self.predict_set, batch_size=1, num_workers=4)

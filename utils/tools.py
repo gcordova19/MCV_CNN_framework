@@ -53,6 +53,9 @@ def confm_metrics2image(conf_matrix, names=None):
 
     data = np.fromstring(img.getvalue(), dtype=np.uint8)
     im = cv.imdecode(data, cv.IMREAD_UNCHANGED)[:, :, 0:3]
+    print('confutionMat')
+    img_file_path = "/home/grupo09/M5/Resultados/MAT.png"
+    cv.imwrite(img_file_path, im)
     return im[..., ::-1]
 
 
