@@ -54,10 +54,8 @@ To use our code run the following command:
 
 where ````<EXP_FOLDER>```` is the default destination of the log files and the model weights of the different experiments, ````<EXP_NAME>```` is the 
 desired name of the experiment (and will be stored in the experiments folder), and ````<CONFIG_FILE>```` is the name of the configuration file, where the task,
- model, dataset and other parameters are specified. The VGG16 experiments can be found in the configuration folder (````config/````).
-
-The master branch does not currently contain the code for the DenseNet121 and OurNet, they can be found in the branch named sergi. The config files are also
-present in the configuration folder of that branch. I'll merge that branch into master when I have time to do it because there are a ton of merge conflicts.
+ model, dataset and other parameters are specified. The VGG16 experiments can be found in the configuration folder (````config/````), as well as the configuration
+files for the DenseNet and the OurNet architectures.
 
 # Level of completeness of the week 2 goals       
 ### Task a)
