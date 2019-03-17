@@ -37,6 +37,7 @@ class Configuration():
         cf.exp_folder = os.path.join(cf.exp_folder, cf.exp_name)
         cf.tensorboard_path = os.path.join(cf.exp_folder,'tensorboard/')
         cf.debug = self.args.debug
+        cf.silent = self.args.silent
         cf.log_file = os.path.join(cf.exp_folder, "logfile.log")
         cf.log_file_stats = os.path.join(cf.exp_folder, "logfile_stats.log")
         cf.log_file_debug = os.path.join(cf.exp_folder, "logfile_debug.log")
@@ -110,6 +111,11 @@ class Configuration():
         parser.add_argument("--model", dest='model_type',
                             type=str,
                             help="Model name, Options: ['DenseNetFCN', 'FCN8']")
+
+        parser.add_argument("--silent",
+                            dest='silent',
+                            action='store_true',
+                            help="do not show progress bar in case you do not have access to stdout")
 
         ### load options
         parser.add_argument("--resume_experiment",

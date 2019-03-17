@@ -5,3 +5,4 @@ config/tmp_*
 *.pth
 *.out
 *.err
+.idea*
