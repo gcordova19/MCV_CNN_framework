@@ -18,6 +18,9 @@ Link to the [Overleaf article](https://www.overleaf.com/project/5c77257d723d5023
 # Week2
 [Summary of our work](Week2.md)
 
+# Week3
+[Summary of our work](Week3.md)
+
 # VGG summary
 in Very Deep Convolution Networks for Large-Scale Image Recognition, Simonyan and Zisserman analyze how increasing the depth of convolutional neural networks affects their performance. They use smaller filters (3x3, padding 1, stride 1) and argue that by stacking 3x3 convolutional layers they get a larger effective receptive field while decreasing the number of parameters. This also allows to include more non-linear rectification layers, making the decision function more discriminative.
 They analyze different architectures with these 3x3 convolutional layers combined with max-pooling layers followed by 2 fully-connected layers of 4096 channels, a 1000 fully connected layer and soft-max.
