@@ -1,0 +1,12 @@
+*.pyc 
+*/*.pyc 
+<<<<<<< HEAD
+    config/tmp_*
+*.pth
+=======
+config/tmp_* 
+
+*.pth
+*.out
+*.err
+>>>>>>> sergi

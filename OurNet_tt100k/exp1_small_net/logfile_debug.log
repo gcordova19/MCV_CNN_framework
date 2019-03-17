@@ -1,0 +1,49 @@
+
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: densenet <--- 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: densenet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: densenet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: ournet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: ournet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: ournet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 	 Train step finished: 858s 
+- Starting validation <---	 Validation step finished: 1s 
+- Reading Test dataset: 
+ - Starting test <---	 Test step finished: 14s 
+- Reading Prediction dataset: 
+ - Generating predictions <---
+ Prediction step finished: 49s 
+- Experiment finished: 932s 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: ournet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: ournet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 
+ ---------- Init experiment: exp1_small_net ---------- 
+- Building model: ournet <--- 
+- Reading Train dataset: 
+- Reading Validation dataset: 	 Train step finished: 1058s 
+- Starting validation <---	 Validation step finished: 2s 
+- Reading Test dataset: 
+ - Starting test <---	 Test step finished: 16s 
+- Reading Prediction dataset: 
+ - Generating predictions <---
+ Prediction step finished: 52s 
+- Experiment finished: 1135s 

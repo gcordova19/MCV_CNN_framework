@@ -1,4 +1,7 @@
 *.pyc 
 */*.pyc 
-    config/tmp_*
+config/tmp_* 
+
 *.pth
+*.out
+*.err
