@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy as np
 from matplotlib.image import imread
+from os import listdir
 
 def parse_pixel(label):
     #http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/data/label_colors.txt
@@ -30,26 +31,22 @@ def parse_pixel(label):
         return [0, 0, 0]  # Void = Black
 
 
-dataset_dir = '/home/mcv/datasets/M5/segmentation/camvid/'
-output_dir_images = '/home/grupo09/M5/MCV_CNN_framework/Camvid/test/images/'
-output_dir_segmentations = '/home/grupo09/M5/MCV_CNN_framework/Camvid/test/segmentations/'
 
-train_labels = dataset_dir+'test_labels.txt'
+dataset_dir = '/home/mperez/remoteMCV/M5/MCV_CNN_framework/Camvid/test_29808/predictions/'
+output_dir_segmentations = '/home/mperez/remoteMCV/M5/MCV_CNN_framework/Camvid/test_29808/parsed_predictions/'
 
+for image in listdir(dataset_dir):
+    print(image)
+    mask_file = dataset_dir+image
+    im_frame = Image.open(mask_file)
+    np_frame = np.array(im_frame)
+    segmentation_array = np.zeros([np_frame.shape[0], np_frame.shape[1], 3], dtype=np.uint8)
 
-with open(train_labels, 'r') as f:
-    for line in f.readlines():
-        print(line)
-        mask_file = line.strip()
-        im_frame = Image.open(mask_file)
-        np_frame = np.array(im_frame)
-        segmentation_array = np.zeros([np_frame.shape[0], np_frame.shape[1], 3], dtype=np.uint8)
-
-        for x in range(np_frame.shape[0]):
-            for y in range(np_frame.shape[1]):
-                segmentation_array[x, y, :] = parse_pixel(np_frame[x, y])
-        segmentation_img = Image.fromarray(segmentation_array, 'RGB')
-        segmentation_img.save(output_dir_segmentations+mask_file.split('/')[-1])
+    for x in range(np_frame.shape[0]):
+        for y in range(np_frame.shape[1]):
+            segmentation_array[x, y, :] = parse_pixel(np_frame[x, y])
+    segmentation_img = Image.fromarray(segmentation_array, 'RGB')
+    segmentation_img.save(output_dir_segmentations+mask_file.split('/')[-1])
 
 """
 im_frame = Image.open('train_mask_1TP_006690.png')
