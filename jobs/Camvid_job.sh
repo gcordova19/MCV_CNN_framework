@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -n 4 # Number of cores
 #SBATCH -N 1 # Ensure that all cores are on one machine
-#SBATCH -D /home/grupo09/M5/marc/professor_git/MCV_CNN_framework # working directory
+#SBATCH -D /home/grupo09/M5/w3_g# working directory
 #SBATCH -t 1-00:00 # Runtime in D-HH:MM
 #SBATCH -p mhigh # Partition to submit to
 #SBATCH -q masterhigh # Required to requeue other users mlow queue jobs
