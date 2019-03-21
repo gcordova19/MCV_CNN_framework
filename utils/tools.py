@@ -12,12 +12,10 @@ except ImportError:
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-
-def confm_metrics2image(conf_matrix, names=None):
-
+def confm_metrics2image(conf_matrix,names=None):
     nLabels = np.shape(conf_matrix)[0]
 
-    if names == None:
+    if names==None:
         plt_names = range(nLabels)
     else:
         plt_names = names
@@ -36,6 +34,8 @@ def confm_metrics2image(conf_matrix, names=None):
     img = BytesIO() 
     plt.ioff()
     plt.cla()
+    plt.ioff()
+    plt.cla()
     plt.clf()
     plt.imshow(conf_matrix,
                interpolation='nearest',
@@ -45,8 +45,8 @@ def confm_metrics2image(conf_matrix, names=None):
     plt.colorbar()
     plt.title('Confusion Matrix')
 
-    plt.xticks(range(nLabels), plt_names, rotation=90)
-    ystick = list(zip(plt_names, [conf_matrix[i][i] for i in range(nLabels)]))
+    plt.xticks(range(nLabels),plt_names, rotation=90)
+    ystick = zip(plt_names, [conf_matrix[i][i] for i in range(nLabels)])
     ystick_str = [str(ystick[i][0]) + '(%.2f)' % ystick[i][1] for i in range(nLabels)]
 
     plt.yticks(range(nLabels), ystick_str)
@@ -59,7 +59,7 @@ def confm_metrics2image(conf_matrix, names=None):
     plt.savefig(img, format='png')
     img.seek(0)
 
-    data = np.fromstring(img.getvalue(), dtype=np.uint8)
+    data = np.asarray(bytearray(img.buf), dtype=np.uint8)
     img = cv.imdecode(data, cv.IMREAD_UNCHANGED)[:, :, 0:3]
     img = img[..., ::-1]
 
@@ -70,46 +70,52 @@ def save_prediction(output_path, predictions, names):
         output_file = output_path + names[img]
         cv.imwrite(output_file, np.squeeze(predictions[img], axis=2))
 
-class Early_Stopping():
+class EarlyStopping:
     def __init__(self, cf):
         self.cf = cf
         self.best_loss_metric = float('inf')
         self.best_metric = 0
         self.counter = 0
         self.patience = self.cf.patience
-        self.stop = False
 
-    def check(self, save_condition, train_mLoss, valid_mLoss=None,
-                mIoU_valid=None, mAcc_valid=None):
+    def check(self, train_loss, val_loss=None, val_mIoU=None, val_acc=None, val_f1score=None):
         if self.cf.stop_condition == 'train_loss':
-            if train_mLoss < self.best_loss_metric:
-                self.best_loss_metric = train_mLoss
+            if train_loss < self.best_loss_metric:
+                self.best_loss_metric = train_loss
                 self.counter = 0
             else:
                 self.counter += 1
         elif self.cf.stop_condition == 'valid_loss':
-            if valid_mLoss < self.best_loss_metric:
-                self.best_loss_metric = valid_mLoss
+            if val_loss < self.best_loss_metric:
+                self.best_loss_metric = val_loss
                 self.counter = 0
             else:
                 self.counter += 1
         elif self.cf.stop_condition == 'valid_mIoU':
-            if mIoU_valid > self.best_metric:
-                self.best_metric = mIoU_valid
+            if val_mIoU > self.best_metric:
+                self.best_metric = val_mIoU
                 self.counter = 0
             else:
                 self.counter += 1
         elif self.cf.stop_condition == 'valid_mAcc':
-            if mAcc_valid > self.best_metric:
-                self.best_metric = mAcc_valid
+            if val_acc > self.best_metric:
+                self.best_metric = val_acc
                 self.counter = 0
             else:
                 self.counter += 1
+        elif self.cf.stop_condition == 'f1_score':
+            if val_f1score > self.best_metric:
+                self.best_metric = val_f1score
+                self.counter = 0
+            else:
+                self.counter += 1
+
         if self.counter == self.patience:
             print(' Early Stopping Interruption\n')
             return True
         else:
             return False
+
 
 class AverageMeter(object):
     def __init__(self):

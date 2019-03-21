@@ -62,14 +62,14 @@ class ProgressBar:
                 self.__lastLens = msg_lens
 
                 if self.__step == self.__nSteps:
-                    print ('')
+                    print( '')
 
             if is_updated:
                 self.__step = self.__step + 1
         else:
-            print(self.__step)
-            print(self.__nSteps)
-            print('WARNING: Progress Bar step is major than the limit established')
+            print (self.__step)
+            print (self.__nSteps)
+            print ('WARNING: Progress Bar step is major than the limit established')
 
     def finish_progress(self):
         '''
@@ -94,11 +94,8 @@ class ProgressBar:
     def __split_msg(self, msg_endl):
         list_msgs = []
         list_lens = []
-        #rows, columns = os.popen('stty size', 'r').read().split
-        rows, columns = 20, 20
 
-
-
+        rows, columns = os.popen('stty size', 'r').read().split()
         columns = int(columns) - 1
 
         for msg in msg_endl:
@@ -173,7 +170,7 @@ class ProgressBar:
 
         loss = self.__loss
 
-        if self.__prev_msg is None:
+        if self.__prev_msg==None:
             progressMsg = ''
         else:
             progressMsg = self.__prev_msg
@@ -181,7 +178,7 @@ class ProgressBar:
         progressMsg = progressMsg + '[' + ('=' * nRepetitions) + (' ' * (self.__lenBar - nRepetitions)) + \
                       '], ' + '%.03f it/s, ' % its + '%.02f%%' % percentage + \
                       ', ETA: %d:' % hours + '%02d:' % mints + "%02.01f" % sec
-        if self.__msg is not None:
+        if self.__msg != None:
             progressMsg = progressMsg + ', ' + self.__msg
 
         return progressMsg

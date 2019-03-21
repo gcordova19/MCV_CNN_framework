@@ -23,7 +23,7 @@ class Classification_Manager(SimpleTrainer):
                             100 * self.model.best_stats.val.recall, 100 * self.model.best_stats.val.f1score,
                             self.model.best_stats.val.loss)
 
-        def validate_epoch(self, valid_set, valid_loader, early_Stopping, epoch, global_bar):
+        def validate_epoch(self, valid_set, valid_loader, early_stopping, epoch, global_bar):
             if valid_set is not None and valid_loader is not None:
                 # Set model in validation mode
                 self.model.net.eval()
@@ -32,9 +32,9 @@ class Classification_Manager(SimpleTrainer):
 
                 # Early stopping checking
                 if self.cf.early_stopping:
-                    early_Stopping.check(self.stats.train.loss, self.stats.val.loss, self.stats.val.mIoU,
-                                         self.stats.val.acc)
-                    if early_Stopping.stop == True:
+                    #early_Stopping.check(self.stats.train.loss, self.stats.val.loss, self.stats.val.mIoU,
+                    if early_stopping.check(self.stats.train.loss, self.stats.val.loss, self.stats.val.mIoU,
+                    self.stats.val.acc, self.stats.val.f1score):
                         self.stop = True
 
                 # Set model in training mode
@@ -46,7 +46,8 @@ class Classification_Manager(SimpleTrainer):
             mean_precision = compute_precision(TP_list,FP_list)
             mean_recall = compute_recall(TP_list,FN_list)
             mean_f1score = compute_f1score(TP_list,FP_list,FN_list)
-            self.stats.train.acc = np.nanmean(mean_accuracy)
+            # self.stats.train.acc = np.nanmean(mean_accuracy)
+            self.stats.train.acc = np.sum(TP_list) / (np.sum(FP_list) + np.sum(TP_list))
             self.stats.train.recall= np.nanmean(mean_recall)
             self.stats.train.precision = np.nanmean(mean_precision)
             self.stats.train.f1score = np.nanmean(mean_f1score)
@@ -96,7 +97,8 @@ class Classification_Manager(SimpleTrainer):
             mean_precision = compute_precision(TP_list,FP_list)
             mean_recall = compute_recall(TP_list,FN_list)
             mean_f1score = compute_f1score(TP_list,FP_list,FN_list)
-            self.stats.val.acc = np.nanmean(mean_accuracy)
+            #self.stats.val.acc = np.nanmean(mean_accuracy)
+            self.stats.val.acc = np.sum(TP_list)/(np.sum(FP_list)+np.sum(TP_list))
             self.stats.val.recall= np.nanmean(mean_recall)
             self.stats.val.precision = np.nanmean(mean_precision)
             self.stats.val.f1score = np.nanmean(mean_f1score)
@@ -148,12 +150,8 @@ class Classification_Manager(SimpleTrainer):
 
     class predict(SimpleTrainer.predict):
         def __init__(self, logger_stats, model, cf):
-            print("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
             super(Classification_Manager.predict, self).__init__(logger_stats, model, cf)
-            print("holaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
             self.filename = os.path.join(self.cf.predict_path_output, 'predictions.txt')
-            print("holuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")
-            print(self.filename)
             self.f = open(self.filename,'w')
 
         def write_results(self, predictions, img_name, img_shape):

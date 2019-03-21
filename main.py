@@ -58,7 +58,7 @@ def main():
             # Train without validation inside epoch
             problem_manager.trainer.start(dataloader.train_loader, dataloader.train_set)
         train_time = time.time() - train_time
-        logger_debug.write('\t Train step finished: %ds ' % train_time)
+        logger_debug.write('\t Train step finished: %ds ' % (train_time))
 
     if cf.validation:
         valid_time = time.time()
@@ -73,7 +73,7 @@ def main():
         logger_debug.write('\n- Starting validation <---')
         problem_manager.validator.start(dataloader.loader_set, dataloader.loader, 'Validation')
         valid_time = time.time() - valid_time
-        logger_debug.write('\t Validation step finished: %ds ' % valid_time)
+        logger_debug.write('\t Validation step finished: %ds ' % (valid_time))
 
     if cf.test:
         model.net.eval()
@@ -84,7 +84,7 @@ def main():
         logger_debug.write('\n - Starting test <---')
         problem_manager.validator.start(dataloader.loader_set, dataloader.loader, 'Test')
         test_time = time.time() - test_time
-        logger_debug.write('\t Test step finished: %ds ' % test_time)
+        logger_debug.write('\t Test step finished: %ds ' % (test_time))
 
     if cf.predict_test:
         model.net.eval()
@@ -94,12 +94,11 @@ def main():
         logger_debug.write('\n - Generating predictions <---')
         problem_manager.predictor.start(dataloader.predict_loader)
         pred_time = time.time() - pred_time
-        logger_debug.write('\t Prediction step finished: %ds ' % pred_time)
+        logger_debug.write('\t Prediction step finished: %ds ' % (pred_time))
 
     total_time = time.time() - start_time
-    logger_debug.write('\n- Experiment finished: %ds ' % total_time)
+    logger_debug.write('\n- Experiment finished: %ds ' % (total_time))
     logger_debug.write('\n')
-
 
 # Entry point of the script
 if __name__ == "__main__":
