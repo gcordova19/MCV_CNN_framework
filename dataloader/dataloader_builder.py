@@ -25,13 +25,12 @@ class Dataloader_Builder(object):
                                                                   standard_transforms.ToTensor()])
             self.test_img_preprocessing = standard_transforms.Compose([preproces_input(self.cf),
                                                                   standard_transforms.ToTensor()])
-            #self.train_transformation = ComposeObjDet([CropObjDet(self.cf), RandomHorizontalFlipObjDet(self.cf)])
             self.resize = ComposeResize([Resize(self.cf)])
         else:
             self.img_preprocessing = standard_transforms.Compose([Random_distort(self.cf), preproces_input(self.cf),
                                                                   ToTensor()])
             self.test_img_preprocessing = standard_transforms.Compose([preproces_input(self.cf),
-                                                                  ToTensor()])
+                                                                       ToTensor()])
             self.train_transformation = ComposeSemSeg([CropSegSem(self.cf),
                                                        RandomHorizontalFlipSegSem(self.cf)])
 
@@ -51,7 +50,7 @@ class Dataloader_Builder(object):
                                                       transform=self.train_transformation,
                                                       box_coder=self.model.box_coder,
                                                       resize_process=self.resize)
-        self.train_loader = DataLoader(self.train_set, batch_size=self.cf.train_batch_size, num_workers=8)
+        self.train_loader = DataLoader(self.train_set, batch_size=self.cf.train_batch_size, num_workers=4)
 
     def build_valid(self, valid_samples, images_txt, gt_txt, resize_image, batch_size):
         if self.cf.problem_type == 'segmentation':
@@ -72,7 +71,7 @@ class Dataloader_Builder(object):
                                                        transform=None,
                                                        valid=True,
                                                        resize_process=self.resize)
-        self.loader = DataLoader(self.loader_set, batch_size=batch_size, num_workers=8)
+        self.loader = DataLoader(self.loader_set, batch_size=batch_size, num_workers=4)
 
     def build_predict(self):
         self.predict_set = fromFileDatasetToPredict(self.cf, self.cf.test_images_txt,

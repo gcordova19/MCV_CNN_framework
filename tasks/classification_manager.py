@@ -24,7 +24,6 @@ class Classification_Manager(SimpleTrainer):
                             self.model.best_stats.val.loss)
 
         def validate_epoch(self, valid_set, valid_loader, early_stopping, epoch, global_bar):
-            if valid_set is not None and valid_loader is not None:
                 # Set model in validation mode
                 self.model.net.eval()
 
@@ -96,9 +95,9 @@ class Classification_Manager(SimpleTrainer):
             mean_accuracy = compute_accuracy(TP_list, TN_list, FP_list, FN_list)
             mean_precision = compute_precision(TP_list,FP_list)
             mean_recall = compute_recall(TP_list,FN_list)
-            mean_f1score = compute_f1score(TP_list,FP_list,FN_list)
-            #self.stats.val.acc = np.nanmean(mean_accuracy)
-            self.stats.val.acc = np.sum(TP_list)/(np.sum(FP_list)+np.sum(TP_list))
+            # self.stats.val.acc = np.nanmean(mean_accuracy)
+            self.stats.val.acc = np.sum(TP_list) / (np.sum(FP_list) + np.sum(TP_list))
+            self.stats.val.acc = np.nanmean(mean_accuracy)
             self.stats.val.recall= np.nanmean(mean_recall)
             self.stats.val.precision = np.nanmean(mean_precision)
             self.stats.val.f1score = np.nanmean(mean_f1score)

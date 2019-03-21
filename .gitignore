@@ -1,6 +1,8 @@
-*.pyc
-*/*.pyc
-config/tmp_*
-.idea/
-/models/
-/pretrained_model/
+*.pyc 
+*/*.pyc 
+config/tmp_* 
+
+*.pth
+*.out
+*.err
+.idea*

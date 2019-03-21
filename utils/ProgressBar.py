@@ -95,7 +95,10 @@ class ProgressBar:
         list_msgs = []
         list_lens = []
 
-        rows, columns = os.popen('stty size', 'r').read().split()
+        #rows, columns = os.popen('stty size', 'r').read().split
+        rows, columns = 10, 10
+
+
         columns = int(columns) - 1
 
         for msg in msg_endl:
@@ -157,11 +160,11 @@ class ProgressBar:
         return progressMsg
 
     def __createProgressMsg(self, its):
-        """
+        '''
         Private. Function to create the message Bar
         :param its: iteration per seconds
         :return: String. Return the progress message
-        """
+        '''
         nRepetitions = int(float(self.__lenBar) * float(self.__step) / float(self.__nSteps))
 
         percentage = 100. * float(self.__step) / float(self.__nSteps)
@@ -242,14 +245,15 @@ Testing class
 
 if __name__ == '__main__':
 
-    print('Testing small progress bar 5 seconds...')
+
+    print ('Testing small progress bar 5 seconds...')
     bar = ProgressBar(5, lenBar=0)
     bar.update(show=False)
     for i in range(5):
         time.sleep(1)
         bar.update()
 
-    print('Total testing estimated time...')
+    print( 'Total testing estimated time...')
     global_bar = ProgressBar(5 + 30 + 5 + 5, lenBar=20)
 
     accum_str = '\n\nTesting large message during 5 seconds...\n'
