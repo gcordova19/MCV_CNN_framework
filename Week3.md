@@ -7,6 +7,14 @@
 
 
 # Results of the different experiments      
+## Camvid dataset
+Networks | Accuracy | Mean IoU| Loss | 
+--- | --- | --- | --- |
+fcn8 (50 epoch) train | 77.57% | 70.28 |0.15 |
+fcn8 (50 epoch) val |  77.39% | 66.43% | 0.21 | 
+fcn8atonce (50 epoch) train | 77.06% | 69.78| 0.15 |
+fcn8atonce (50 epoch) val | 76.97% | 66.49% | 0.20 |
+
 
 
 # Running the code
