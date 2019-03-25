@@ -1,12 +1,6 @@
 # What we have implemented     
-
-
-
-# Code structure and explanation
-
-
-
-# Results of the different experiments      
+As part of the second part of the third-week project, we have trained the FCN8  and FCN8atonce networks with the CamVid, Cityscapes, KITTI, Synthia-Rand-Cityscapes and Pascal VOC1011. We have tried to train Densenet FCN, DeepLab v3 plus, Deeplab v3 plus Xception, Deeplab v2  and U-Net.
+    
 # Results of the different experiments  
 
 ## Camvid dataset
@@ -40,25 +34,17 @@ To use our code run the following command:
 # Level of completeness of the week 2 goals       
 ### Task a)
 - [x] Analyze the dataset.
-- [x] Calculate the accuracy on train, val, and test sets.
-- [x] Evaluate different techniques in the configuration file:
+- [x] Evaluate the accuracy on train, val, and test sets (CanVid Dataset).
 ### Task b)
-- [x] Fully convolutional networks for semantic segmentation (Long et al. CVPR, 2015)
-
-- [x] Another paper of free choice.
+- [x] Fully convolutional networks for semantic segmentation 
+- [x] U-Net: Convolutional Networks for Biomedical Image Segmentation
 ### Task c)
-- [x] Select one network from the state of the art (SegnetVGG, DeepLab, ResnetFCN, ...).
 - [x] Integrate the new model into the framework.
-- [x] Evaluate the new model on CamVid. Train from scratch and/or fine-tune. 
+- [x] Evaluate the new model on CamVid. 
 ### Task d)
-- [x] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...)
-
-- [x] Use the FCN8 model as before.
-
+- [x] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...) with FCN8atonce model.
 ### Task e) 
-- [x] Boost the performance of your network
-
-### Task f) 
+- [x] Boost the performance of your network and improve the code.
 
 # Slides       
 [slides](https://docs.google.com/presentation/d/1gzCdiyBJP6xtvoyh1U6W2u-8NkILuakHYTKSshl_TZQ/edit?usp=sharing)
