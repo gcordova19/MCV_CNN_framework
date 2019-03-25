@@ -50,4 +50,5 @@ To use our code run the following command:
 [slides](https://docs.google.com/presentation/d/1gzCdiyBJP6xtvoyh1U6W2u-8NkILuakHYTKSshl_TZQ/edit?usp=sharing)
 
 # Model weights       
+[weights of the trained models](https://drive.google.com/drive/folders/1wKMPiqQF6aPVguRvRdKSFDVSKYlH1RXo?usp=sharing)
 
