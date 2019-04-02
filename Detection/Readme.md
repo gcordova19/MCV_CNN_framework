@@ -1,5 +1,15 @@
+This is documentation for us :)
 
+* Please check section  https://github.com/matterport/Mask_RCNN#training-on-your-own-dataset
+they explain how to train on your network as following:
 
+In summary, to train the model on your own dataset you'll need to extend two classes:
+
+```Config``` This class contains the default configuration. Subclass it and modify the attributes you need to change.
+
+```Dataset``` This class provides a consistent way to work with any dataset. It allows you to use new datasets for training without having to change the code of the model. It also supports loading multiple datasets at the same time, which is useful if the objects you want to detect are not all available in one dataset.
+
+* I put here three files might be useful but the most important one is tower_data_config.py where I extend the two classes ```Config```, ```Dataset``` on some dataset that containd three classes.
 
 
 
@@ -14,18 +24,18 @@ to intitialize the model before training on our dataset
 
 # Prediciton
 To run the  model (saved in model_v1) in inferece mode on some image 
-
+```    
 python3.6 predict.py --trained_model_path model_v1/ --image ~/TOWERDATA/Batch-4_Corona/Best/449_P5030503.JPG   --min_confidence 0.85 --save_dir output/
-
+```    
 Note that in this file in main, it simply define the trained model args and then run detect_big_image() on the big image which divide it into smaller images and run the model on each one. You can use this part inside the main as a guidline of how to incorporate it in your app. Note that the results which are the image  with bboxes, classes and confidence and the csv file will be saved in the --save_dir
 
 # model evaluation
 To evaluate the model you can run this commands
-
+```    
 python3.6 evaluate.py --trained_model_path model_v1/ --in_dir dataset/imgs/ --min_confidence 0.5
 cd mAP/
 python3.6 main.py -na -np --set-class-iou Insulator 0.1 Corona_Ring 0.01
-
+```    
 71.85% = Corona_Ring AP 
 91.05% = Davit_Arm AP 
 90.48% = Insulator AP
