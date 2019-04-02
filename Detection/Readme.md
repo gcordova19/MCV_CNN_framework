@@ -11,7 +11,7 @@ In summary, to train the model on your own dataset you'll need to extend two cla
 
 * to download the pretrained model weights on coco you can use this script download_pretrained_MRCNN_COCO.sh
 
-The following sections showing how the code can be used in general
+The following sections showing how the code can be used in general but you can just focus on training section right now, I think we can do evaluation (calculate mAP) in easier way than the mentioned below
 
 
 # Training the model
