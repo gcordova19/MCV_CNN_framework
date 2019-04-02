@@ -1,5 +1,5 @@
 * Please check section  https://github.com/matterport/Mask_RCNN#training-on-your-own-dataset
-they explain how to train on your network as following:
+they explain how to train on your dataset:
 
 In summary, to train the model on your own dataset you'll need to extend two classes:
 
