@@ -1,5 +1,3 @@
-This is documentation for us :)
-
 * Please check section  https://github.com/matterport/Mask_RCNN#training-on-your-own-dataset
 they explain how to train on your network as following:
 
@@ -11,7 +9,9 @@ In summary, to train the model on your own dataset you'll need to extend two cla
 
 * I put here three files might be useful but the most important one is tower_data_config.py where I extend the two classes ```Config```, ```Dataset``` on some dataset that containd three classes.
 
+* to download the pretrained model weights on coco you can use this script download_pretrained_MRCNN_COCO.sh
 
+The following sections showing how the code can be used in general
 
 
 # Training the model
