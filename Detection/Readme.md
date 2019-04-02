@@ -1,7 +1,14 @@
+
+
+
+
+
+
 # Training the model
 To train the model you need to run this command:
+```    
 python3.6 tower_data_train.py --dataset_dir dataset/ --coco_model_path ../mask_rcnn_coco.h5 --trained_model_path model/     
-
+```    
 coco_model_path specify the path where the weights of the model trained previously on COCO dataset is located, that will be used
 to intitialize the model before training on our dataset
 
@@ -19,28 +26,8 @@ python3.6 evaluate.py --trained_model_path model_v1/ --in_dir dataset/imgs/ --mi
 cd mAP/
 python3.6 main.py -na -np --set-class-iou Insulator 0.1 Corona_Ring 0.01
 
-but for lower false positive you can use higher min_confidence (recommended: 0.80 +)
-Expected results:
-
 71.85% = Corona_Ring AP 
 91.05% = Davit_Arm AP 
 90.48% = Insulator AP
 mAP = 84.46%
-
-
-# To run on directory
-The inDir should contain only images. each image will be divided and processed and its two output files (csv and detections visualized) will be save in the outDir with the same name of the image
-
-python3.6 batch_detect.py --trained_model_path model_v1/ --image   --min_confidence 0.85 --outDir output/ --inDir ../batch_test
-
-If you run this code on batch_test directory that contain 16 images you should get logs simialr to that
-
-INFO | Loading the model 
-INFO | time = 11 secs 
-INFO | Running the model on ../batch_test that contain 16 images 
-INFO | Total processing time = 82 secs 
-INFO | Processing time per image = 5.1 secs
-
-As you can see loading the model take 11 secand all images processed in 82 secs.
-
 
