@@ -36,8 +36,8 @@ python3.6 evaluate.py --trained_model_path model_v1/ --in_dir dataset/imgs/ --mi
 cd mAP/
 python3.6 main.py -na -np --set-class-iou Insulator 0.1 Corona_Ring 0.01
 ```    
-71.85% = Corona_Ring AP 
-91.05% = Davit_Arm AP 
-90.48% = Insulator AP
-mAP = 84.46%
-
+71.85% = Corona_Ring AP    
+91.05% = Davit_Arm AP     
+90.48% = Insulator AP    
+mAP = 84.46%    
+    
