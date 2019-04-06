@@ -21,6 +21,10 @@ Link to the [Overleaf article](https://www.overleaf.com/project/5c77257d723d5023
 # Week3
 [Summary of our work](Week3.md)
 
+# Week4
+[Summary of our work](Week4.md)
+
+
 # VGG summary
 in Very Deep Convolution Networks for Large-Scale Image Recognition, Simonyan and Zisserman analyze how increasing the depth of convolutional neural networks affects their performance. They use smaller filters (3x3, padding 1, stride 1) and argue that by stacking 3x3 convolutional layers they get a larger effective receptive field while decreasing the number of parameters. This also allows to include more non-linear rectification layers, making the decision function more discriminative.
 They analyze different architectures with these 3x3 convolutional layers combined with max-pooling layers followed by 2 fully-connected layers of 4096 channels, a 1000 fully connected layer and soft-max.
@@ -34,3 +38,11 @@ Object detection, key points predictions and local correspondence were improved 
 
 # U-Net: Convolutional Networks for Biomedical Image Segmentation
 U-Net builds upon the ideas introduced in the previously described FCN, where the images are compressed and then upsampled at the output, and skip connections are used between the two phases. In addition to several architectural modifications, the authors of this paper also relied on heavy data augmentation during the training phase. This helped the model reach state-of-the-art results in biomedical segmentation challenges, where the number of training samples was scarce. There are several modifications of the FCN introduced in this architecture. According to the authors, one important modification is the usage of a large number of feature channels during the upsampling process, which helped propagating context information to higher resolution layers.  The network also avoids using FC layers, which allows the input images to have different resolutions and aspect ratios. 
+
+# Faster R-CNN
+Faster R-CNN architecture has two networks: region proposal network (RPN) for generating region proposals and a network using these proposals to detect objects into BBox. The main difference so far from the previous ones is the elimination of selective search which was the bottleneck to generate region proposals. The time cost of generating region proposals is reduced due to the use of RPN. This network ranks region boxes (called anchors) and proposes objects. Predicted regions proposed has obtained from some tweaks and compromise to separate high superposed anchors foreground and lowest ones as background. Predict the region proposals is then reshaped using an RoI pooling layer (splits the input feature map into a fixed number of roughly equal regions and then apply Max-Pooling on every region). RoI pooling layer output is then used to classify the image within the proposed region (object detection) and predict the offset values for the BBox.
+
+# Mask R-CNN
+Mask R-CNN extends Faster R-CNN by adding a branch for predicting segmentation masks on each Region of Interest (RoI), in parallel with the existing branch for classification and bounding box regression. The mask branch is a small FCN applied to each RoI, predicting a segmentation mask in a pixel-to-pixel manner. To accomplish this, Mask R-CNN fixes de misalignment problem caused by RoIPool in Faster R-CNN, by using a quantization-free layer, called RoIAlign, that faithfully preserves exact spatial locations. Mask R-CNN decouples mask and class prediction: they predict a binary mask for each class independently, without competition among classes, and rely on the network’s RoI classification branch to predict the category. the model runs at about 200ms per frame on a GPU, and training on COCO takes one to two days on a single 8-GPU machine
+
+
