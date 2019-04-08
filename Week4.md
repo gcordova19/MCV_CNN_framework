@@ -39,7 +39,7 @@ python3.6 udacity_train.py --dataset_dir /dataset/object-detection-crowdai/ --co
 ```
 To run the model on some image 
 ```
-python3.6 udacity_detect.py --trained_model_path /media/basem/Basem/UAB_MS/M5/udacity_model/ --image q.jpg 
+python3.6 udacity_detect.py --trained_model_path /udacity_model/ --image q.jpg 
 ```
 
 # Level of completeness of the week 2 goals       
