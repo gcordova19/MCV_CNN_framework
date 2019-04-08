@@ -44,7 +44,7 @@ class Detector():
         print( bounding_boxes, scores, class_ids)
 
         for b,s,i in zip(bounding_boxes, scores, class_ids):
-            i = class_names[i-1]
+            i = self.class_names[i-1]
             if i   == 'Car':
                 label_color = (0,0,255)
             elif i == 'Truck':
@@ -91,9 +91,9 @@ class Detector():
         bounding_boxes = r['rois'].tolist()
         scores         = r['scores'].tolist()
         class_ids      = r['class_ids'].tolist()
-        im = self.visualize_image(im, bounding_boxes, scores, class_ids)
-        cv2.imshow('output', im)
-        cv2.waitKey()
+        #im = self.visualize_image(im, bounding_boxes, scores, class_ids)
+        #cv2.imshow('output', im)
+        #cv2.waitKey()
         return bounding_boxes, scores, class_ids
 
 
