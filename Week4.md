@@ -66,4 +66,4 @@ python3.6 udacity_detect.py --trained_model_path /udacity_model/ --image q.jpg
 
 # Model weights       
 [weights of the trained models]()
-
+[Best Model trained on Udacity](https://drive.google.com/drive/folders/1IO_Hjv_9DLQ1D69mgmedeRUzboqGYaFQ?usp=sharing)
