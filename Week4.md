@@ -11,19 +11,20 @@ Split* | AP IoU 0.5-0.95 (all areas) | AP IoU 0.5 | AP IoU 0.75 | AP IoU 0.5-0.9
 --- | --- | --- | --- | --- | --- | --- |
 Train | 0.050 |0.124 |0.031 | 0.018 |0.058 |0.100|
 Validation | 0.044 |0.097  | 0.037 | 0.013 | 0.044|0.096|
+
 *MSCOCO does not provide the ground truth for the test split, to evaluate on the test split the labels must be submitted to the challenge
 
 # Results of the different experiments  
 
 ## Udacity dataset : classes are Car, Truck, Pedestrian 
---- |Class Car AP = 59,39%|Class pedrastian AP = 21,83%|Class truck AP = 28,44%|
---- | --- | --- | --- |--- |
+Results |Class Car AP = 59,39%|Class pedrastian AP = 21,83%|Class truck AP = 28,44%|
+--- | --- | --- | --- |
 Precision | 0.68 |0.3 |0.58|
 Recall | 0.63 |0.35|0.3|
 
 ## Udacity dataset : Training Mask-RCNN 
-Split* |IoU 0.2- Map = 46.05%| IoU 0.5  mAP= 36.36%|
---- | --- | --- | --- |
+Class |IoU 0.2- Map = 46.05%| IoU 0.5  mAP= 36.36%|
+--- | --- | --- | 
 car | 0.7 |0.59 |
 pedrastian | 0.36 |0.28|
 truck | 0.33 |0.22|
